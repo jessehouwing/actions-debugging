@@ -7,3 +7,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v3
+    - run: |
+        Start-Sleep -seconds 300
+      shell: pwsh
