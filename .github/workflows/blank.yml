@@ -5,8 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+    - name: Start SSH session
+      uses: jessehouwing/debug-via-ssh@main
+      with:
+        NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+        SSH_PASS: ${{ secrets.SSH_PASS }}
+        NGROK_REGION: eu
+        NGROK_TIMEOUT: 150
     - run: |
-        Start-Sleep -seconds 300
+        $time = Get-Date
+        while ((Get-Date) -lt ($time).AddSeconds(45))
+        {
+            New-Guid
+        }
       shell: pwsh
