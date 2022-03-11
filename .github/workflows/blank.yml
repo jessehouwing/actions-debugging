@@ -12,6 +12,7 @@ jobs:
         SSH_PASS: ${{ secrets.SSH_PASS }}
         NGROK_REGION: eu
         NGROK_TIMEOUT: 150
+        RUN_POST: false
     - run: |
         $time = Get-Date
         while ((Get-Date) -lt ($time).AddSeconds(45))
