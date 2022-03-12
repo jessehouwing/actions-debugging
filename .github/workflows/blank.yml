@@ -16,7 +16,7 @@ jobs:
         RUN_MAIN: false
     - run: |
         $time = Get-Date
-        while ((Get-Date) -lt ($time).AddSeconds(45))
+        while ((Get-Date) -lt ($time).AddSeconds(15))
         {
             New-Guid
         }
